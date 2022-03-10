@@ -44,7 +44,6 @@ int main(void)
     const int screenHeight = 600;
 
     InitWindow(screenWidth, screenHeight, "Pong");
-
     const char* startingText = "Press space to play!";
     const char* restartText = "Press space to restart!";
 
@@ -73,6 +72,7 @@ int main(void)
     bool weHaveAWinner = false;
     int playerScore = 0;
     int AIScore = 0;
+    const char* winnerText;
 
 
     SetTargetFPS(60);
@@ -160,6 +160,8 @@ int main(void)
             if (playerScore == 3 || AIScore == 3) {
                 weHaveAWinner = true;
                 gameGoingOn = false;
+                if (playerScore == 3) winnerText = "You win!";
+                else winnerText = "Computer wins!";
             }
 
             BeginDrawing();
@@ -178,25 +180,17 @@ int main(void)
         }
         else 
         {
-            const char* output;
             int textWidth;
             if (weHaveAWinner) {
-                if (playerScore == 3) {
-                    output = "You win!";
-                }
-                else
-                {
-                    output = "Computer wins!";
-                }
                 playerScore = 0;
                 AIScore = 0;
 
-                textWidth = MeasureText(output, 100);
+                textWidth = MeasureText(winnerText, 100);
 
                 BeginDrawing();
 
                 ClearBackground(BLACK);
-                DrawText(output, screenWidth / 2 - textWidth / 2, screenHeight / 2 - 50, 100, YELLOW);
+                DrawText(winnerText, screenWidth / 2 - textWidth / 2, screenHeight / 2 - 50, 100, YELLOW);
                 textWidth = MeasureText(restartText, 40);
                 DrawText(restartText, screenWidth / 2 - textWidth / 2, screenHeight - 60, 40, YELLOW);
 
