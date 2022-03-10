@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\C++ Projects\Pong game\Source Code\main.cpp(9,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\C++ Projects\Pong game\Source Code\main.cpp(9,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Source Code.vcxproj -> C:\C++ Projects\Pong game\bin\Debug\Source Code.exe
